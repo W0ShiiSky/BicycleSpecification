@@ -237,7 +237,7 @@ $(function () {
             else if (prediction.class === "handlebars"){
                 element = $("<img>").attr({
                     id: elementId,
-                    src: "/image/Bicycle Specification.jpg", // Replace with the actual image source
+                    src: "https://W0ShiiSky.github.io/BicycleSpecification/image/Bicycle Specification.jpg", // Replace with the actual image source
                     alt: "Bicycle Image"
                 });
 
