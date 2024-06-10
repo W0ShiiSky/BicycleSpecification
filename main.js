@@ -205,7 +205,7 @@ $(function () {
                 // );
                 element = $("<img>").attr({
                     id: elementId,
-                    src: "../BICYCLESPECIFICATION/image/BicycleSpecification3.jpg", // Replace with the actual image source
+                    src: "../image/BicycleSpecification3.jpg", // Replace with the actual image source
                     alt: "Bicycle Image"
                 });
 
@@ -237,7 +237,7 @@ $(function () {
             else if (prediction.class === "handlebars"){
                 element = $("<img>").attr({
                     id: elementId,
-                    src: "../BICYCLESPECIFICATION/image/Bicycle Specification.jpg", // Replace with the actual image source
+                    src: "../image/Bicycle Specification.jpg", // Replace with the actual image source
                     alt: "Bicycle Image"
                 });
 
