@@ -25,8 +25,10 @@ $(function () {
 
     var publishable_key = "rf_F5yTWUSIA9ZvmMMZbXJ9j9VRkAx2";
     var toLoad = {
-        model: "types-of-active-mobility-devices",
-        version: 2
+        // model: "types-of-active-mobility-devices",
+        // version: 2
+        model: "activemobilitydevices",
+        version: 1
     };
 
     const loadModelPromise = new Promise(function (resolve, reject) {
