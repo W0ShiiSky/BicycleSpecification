@@ -214,7 +214,7 @@ $(function () {
                     top: prediction.bbox.y, // Adjust this according to your bounding box data
                     left: prediction.bbox.x, // Adjust this according to your bounding box data
                     zIndex: 100, // Set a high z-index to bring it forward
-                    width: "350px", // Set the width of the image
+                    width: "200px", // Set the width of the image
                     height: "auto" // Maintain aspect ratio
                 });
 
@@ -246,7 +246,7 @@ $(function () {
                     top: prediction.bbox.y, // Adjust this according to your bounding box data
                     right: prediction.bbox.x, // Adjust this according to your bounding box data
                     zIndex: 100, // Set a high z-index to bring it forward
-                    width: "350px", // Set the width of the image
+                    width: "200px", // Set the width of the image
                     height: "auto" // Maintain aspect ratio
                 });
             }
