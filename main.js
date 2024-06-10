@@ -205,7 +205,7 @@ $(function () {
                 // );
                 element = $("<img>").attr({
                     id: elementId,
-                    src: "https://https://github.com/W0ShiiSky/BicycleSpecification/blob/main/image/BicycleSpecification3.jpg", // Replace with the actual image source
+                    src: "https://W0ShiiSky.github.io/BicycleSpecification/image/BicycleSpecification3.jpg", // Replace with the actual image source
                     alt: "Bicycle Image"
                 });
 
