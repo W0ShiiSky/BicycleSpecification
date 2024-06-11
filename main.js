@@ -207,20 +207,20 @@ $(function () {
                 // });
 
             } else if (prediction.class === "wheel"){
-                // element = $("<img>").attr({
-                //     id: elementId,
-                //     src: "../BICYCLES2/image/BicycleSpecification2.jpg", // Replace with the actual image source
-                //     alt: "Wheel Image"
-                // });
+                element = $("<img>").attr({
+                    id: elementId,
+                    src: "../BICYCLES2/image/BicycleSpecification2.jpg", // Replace with the actual image source
+                    alt: "Wheel Image"
+                });
 
-                // element.css({
-                //     position: "absolute",
-                //     top: prediction.bbox.y, // Adjust this according to your bounding box data
-                //     right: prediction.bbox.x, // Adjust this according to your bounding box data
-                //     zIndex: 100, // Set a high z-index to bring it forward
-                //     width: "350px", // Set the width of the image
-                //     height: "auto" // Maintain aspect ratio
-                // });
+                element.css({
+                    position: "absolute",
+                    top: prediction.bbox.y, // Adjust this according to your bounding box data
+                    right: prediction.bbox.x, // Adjust this according to your bounding box data
+                    zIndex: 50, // Set a high z-index to bring it forward
+                    width: "150px", // Set the width of the image
+                    height: "auto" // Maintain aspect ratio
+                });
             }
             else if (prediction.class === "handlebars"){
                 // element = $("<img>").attr({
