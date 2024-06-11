@@ -110,7 +110,8 @@ $(function () {
 
         $("body").append(canvas);
     };
-
+    
+    // Text Format
     // const updateDashboard = function(predictionsData) {
     //     // Check if predictions array is empty
     //     if (predictionsData.length === 0) {
@@ -167,6 +168,8 @@ $(function () {
     
     //     console.log("Dashboard updated with predictions:", predictionsData);
     // };
+
+
     // const updateDashboard = function(predictionsData) {
     //     // Check if predictions array is empty
     //     if (predictionsData.length === 0) {
@@ -340,90 +343,219 @@ $(function () {
     //             requestAnimationFrame(detectFrame);
     //         });
     // };
+
+    //Only one image per class will be shown, regardless of how many predictions of each class are detected
+    // const updateDashboard = function(predictionsData) {
+    //     // Check if predictions array is empty
+    //     if (predictionsData.length === 0) {
+    //         console.log("No predictions found.");
+    //         $("#dashboard").html(""); // Clear the dashboard content
+    //         return; // Exit the function if no predictions are found
+    //     }
+    
+    //     // Clear the previous content in the dashboard
+    //     $("#dashboard").empty();
+    
+    //     // Flags to track if an image has been created for each class
+    //     let bicycleImageCreated = false;
+    //     let wheelImageCreated = false;
+    //     let handlebarsImageCreated = false;
+    
+    //     // Loop through predictions and add information to the dashboard
+    //     predictionsData.forEach(function(prediction, index) {
+    //         const classLabel = prediction.class;
+    //         const confidence = prediction.confidence ? prediction.confidence.toFixed(2) : "N/A"; // Check if confidence property exists
+    
+    //         // Create a unique ID for each prediction paragraph
+    //         const paragraphId = `prediction_${index}`;
+    //         const elementId = `prediction_${index}`;
+    
+    //         let element;
+    
+    //         if (prediction.class === "Bicycle" && !bicycleImageCreated) {
+    //             bicycleImageCreated = true; // Mark the flag as true
+    
+    //             element = $("<img>").attr({
+    //                 id: elementId,
+    //                 src: "https://W0ShiiSky.github.io/BicycleSpecification/image/BicycleSpecification3.jpg", // Replace with the actual image source
+    //                 alt: "Bicycle Image"
+    //             });
+    
+    //             element.css({
+    //                 position: "absolute",
+    //                 top: prediction.bbox.y + "px", // Ensure these are in pixel units
+    //                 left: prediction.bbox.x + "px", // Ensure these are in pixel units
+    //                 zIndex: 100, // Set a high z-index to bring it forward
+    //                 width: "150px", // Set the width of the image
+    //                 height: "auto" // Maintain aspect ratio
+    //             });
+    
+    //         } else if (prediction.class === "Wheel" && !wheelImageCreated) {
+    //             wheelImageCreated = true; // Mark the flag as true
+    
+    //         } else if (prediction.class === "Handlebars" && !handlebarsImageCreated) {
+    //             handlebarsImageCreated = true; // Mark the flag as true
+    
+    //             element = $("<img>").attr({
+    //                 id: elementId,
+    //                 src: "https://W0ShiiSky.github.io/BicycleSpecification/image/BicycleSpecification.jpg", // Replace with the actual image source
+    //                 alt: "Bicycle Image"
+    //             });
+    
+    //             element.css({
+    //                 position: "absolute",
+    //                 top: prediction.bbox.y + "px", // Ensure these are in pixel units
+    //                 right : prediction.bbox.x + "px", // Ensure these are in pixel units
+    //                 zIndex: 100, // Set a high z-index to bring it forward
+    //                 width: "150px", // Set the width of the image
+    //                 height: "auto" // Maintain aspect ratio
+    //             });
+    //         }
+    
+    //         // Append the element to the dashboard if it was created
+    //         if (element) {
+    //             $("#dashboard").append(element);
+    //         }
+    //     });
+    
+    //     console.log("Dashboard updated with predictions:", predictionsData);
+    // };
+    
+    // const renderPredictions = function (predictions) {
+    //     var dimensions = videoDimensions(video);
+    //     console.log("Received predictions:", predictions);
+    
+    //     var scale = 1;
+    
+    //     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    
+    //     predictions.forEach(function (prediction) {
+    //         const x = prediction.bbox.x;
+    //         const y = prediction.bbox.y;
+    
+    //         const width = prediction.bbox.width;
+    //         const height = prediction.bbox.height;
+    
+    //         // Draw the bounding box.
+    //         ctx.strokeStyle = prediction.color;
+    //         ctx.lineWidth = 4;
+    //         ctx.strokeRect(
+    //             (x - width / 2) / scale,
+    //             (y - height / 2) / scale,
+    //             width / scale,
+    //             height / scale
+    //         );
+    
+    //         // Draw the label background.
+    //         ctx.fillStyle = prediction.color;
+    //         const textWidth = ctx.measureText(prediction.class).width;
+    //         const textHeight = parseInt(font, 10); // base 10
+    //         ctx.fillRect(
+    //             (x - width / 2) / scale,
+    //             (y - height / 2) / scale,
+    //             textWidth + 8,
+    //             textHeight + 4
+    //         );
+    //     });
+    
+    //     predictions.forEach(function (prediction) {
+    //         const x = prediction.bbox.x;
+    //         const y = prediction.bbox.y;
+    
+    //         const width = prediction.bbox.width;
+    //         const height = prediction.bbox.height;
+    
+    //         // Draw the text last to ensure it's on top.
+    //         ctx.font = font;
+    //         ctx.textBaseline = "top";
+    //         ctx.fillStyle = "#000000";
+    //         ctx.fillText(
+    //             prediction.class,
+    //             (x - width / 2) / scale + 4,
+    //             (y - height / 2) / scale + 1
+    //         );
+    //     });
+    //     updateDashboard(predictions);
+    // };
+    
+    
+    // var prevTime;
+    // var pastFrameTimes = [];
+    // const detectFrame = function () {
+    //     if (!model) return requestAnimationFrame(detectFrame);
+    
+    //     model
+    //         .detect(video)
+    //         .then(function (predictions) {
+    //             requestAnimationFrame(detectFrame);
+    //             renderPredictions(predictions);
+    
+    //             if (prevTime) {
+    //                 pastFrameTimes.push(Date.now() - prevTime);
+    //                 if (pastFrameTimes.length > 30) pastFrameTimes.shift();
+    
+    //                 var total = 0;
+    //                 _.each(pastFrameTimes, function (t) {
+    //                     total += t / 1000;
+    //                 });
+    
+    //                 var fps = pastFrameTimes.length / total;
+    //                 $("#fps").text(Math.round(fps));
+    //             }
+    //             prevTime = Date.now();
+    //         })
+    //         .catch(function (e) {
+    //             console.log("CAUGHT", e);
+    //             requestAnimationFrame(detectFrame);
+    //         });
+    // };
+
     const updateDashboard = function(predictionsData) {
-        // Check if predictions array is empty
         if (predictionsData.length === 0) {
             console.log("No predictions found.");
-            $("#dashboard").html(""); // Clear the dashboard content
-            return; // Exit the function if no predictions are found
+            $("#dashboard").html("");
+            return;
         }
     
-        // Clear the previous content in the dashboard
         $("#dashboard").empty();
     
-        // Flags to track if an image has been created for each class
         let bicycleImageCreated = false;
         let wheelImageCreated = false;
         let handlebarsImageCreated = false;
     
-        // Loop through predictions and add information to the dashboard
-        predictionsData.forEach(function(prediction, index) {
-            const classLabel = prediction.class;
-            const confidence = prediction.confidence ? prediction.confidence.toFixed(2) : "N/A"; // Check if confidence property exists
-    
-            // Create a unique ID for each prediction paragraph
-            const paragraphId = `prediction_${index}`;
-            const elementId = `prediction_${index}`;
-    
+        predictionsData.forEach(function(prediction) {
             let element;
+            const { class: classLabel, bbox: { x, y, width, height }, confidence } = prediction;
     
-            if (prediction.class === "Bicycle" && !bicycleImageCreated) {
-                bicycleImageCreated = true; // Mark the flag as true
-    
+            if (classLabel === "Bicycle" && !bicycleImageCreated) {
+                bicycleImageCreated = true;
                 element = $("<img>").attr({
-                    id: elementId,
-                    src: "https://W0ShiiSky.github.io/BicycleSpecification/image/BicycleSpecification3.jpg", // Replace with the actual image source
+                    src: "https://W0ShiiSky.github.io/BicycleSpecification/image/BicycleSpecification3.jpg",
                     alt: "Bicycle Image"
                 });
-    
-                element.css({
-                    position: "absolute",
-                    top: prediction.bbox.y + "px", // Ensure these are in pixel units
-                    left: prediction.bbox.x + "px", // Ensure these are in pixel units
-                    zIndex: 100, // Set a high z-index to bring it forward
-                    width: "150px", // Set the width of the image
-                    height: "auto" // Maintain aspect ratio
-                });
-    
-            } else if (prediction.class === "Wheel" && !wheelImageCreated) {
-                wheelImageCreated = true; // Mark the flag as true
-    
-                // element = $("<img>").attr({
-                //     id: elementId,
-                //     src: "https://W0ShiiSky.github.io/BicycleSpecification/image/BicycleSpecification2.jpg", // Replace with the actual image source
-                //     alt: "Wheel Image"
-                // });
-    
-                // element.css({
-                //     position: "absolute",
-                //     top: prediction.bbox.y + "px", // Ensure these are in pixel units
-                //     left: prediction.bbox.x + "px", // Ensure these are in pixel units
-                //     zIndex: 100, // Set a high z-index to bring it forward
-                //     width: "150px", // Set the width of the image
-                //     height: "auto" // Maintain aspect ratio
-                // });
-    
-            } else if (prediction.class === "Handlebars" && !handlebarsImageCreated) {
-                handlebarsImageCreated = true; // Mark the flag as true
-    
+            } else if (classLabel === "Wheel" && !wheelImageCreated) {
+                wheelImageCreated = true;
                 element = $("<img>").attr({
-                    id: elementId,
-                    src: "https://W0ShiiSky.github.io/BicycleSpecification/image/BicycleSpecification.jpg", // Replace with the actual image source
-                    alt: "Bicycle Image"
+                    src: "https://W0ShiiSky.github.io/BicycleSpecification/image/BicycleSpecification2.jpg",
+                    alt: "Wheel Image"
                 });
-    
-                element.css({
-                    position: "absolute",
-                    top: prediction.bbox.y + "px", // Ensure these are in pixel units
-                    right : prediction.bbox.x + "px", // Ensure these are in pixel units
-                    zIndex: 100, // Set a high z-index to bring it forward
-                    width: "150px", // Set the width of the image
-                    height: "auto" // Maintain aspect ratio
+            } else if (classLabel === "Handlebars" && !handlebarsImageCreated) {
+                handlebarsImageCreated = true;
+                element = $("<img>").attr({
+                    src: "https://W0ShiiSky.github.io/BicycleSpecification/image/BicycleSpecification.jpg",
+                    alt: "Handlebars Image"
                 });
             }
     
-            // Append the element to the dashboard if it was created
             if (element) {
+                element.css({
+                    position: "absolute",
+                    top: `${y}px`,
+                    left: `${x}px`,
+                    zIndex: 100,
+                    width: "150px",
+                    height: "auto"
+                });
                 $("#dashboard").append(element);
             }
         });
@@ -431,93 +563,55 @@ $(function () {
         console.log("Dashboard updated with predictions:", predictionsData);
     };
     
-    const renderPredictions = function (predictions) {
-        var dimensions = videoDimensions(video);
-        console.log("Received predictions:", predictions);
-    
-        var scale = 1;
-    
+    const renderPredictions = function(predictions) {
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     
-        predictions.forEach(function (prediction) {
-            const x = prediction.bbox.x;
-            const y = prediction.bbox.y;
-    
-            const width = prediction.bbox.width;
-            const height = prediction.bbox.height;
-    
-            // Draw the bounding box.
+        predictions.forEach(function(prediction) {
+            const { x, y, width, height } = prediction.bbox;
             ctx.strokeStyle = prediction.color;
             ctx.lineWidth = 4;
-            ctx.strokeRect(
-                (x - width / 2) / scale,
-                (y - height / 2) / scale,
-                width / scale,
-                height / scale
-            );
+            ctx.strokeRect(x, y, width, height);
     
-            // Draw the label background.
             ctx.fillStyle = prediction.color;
             const textWidth = ctx.measureText(prediction.class).width;
-            const textHeight = parseInt(font, 10); // base 10
-            ctx.fillRect(
-                (x - width / 2) / scale,
-                (y - height / 2) / scale,
-                textWidth + 8,
-                textHeight + 4
-            );
+            const textHeight = parseInt(font, 10);
+            ctx.fillRect(x, y, textWidth + 8, textHeight + 4);
         });
     
-        predictions.forEach(function (prediction) {
-            const x = prediction.bbox.x;
-            const y = prediction.bbox.y;
-    
-            const width = prediction.bbox.width;
-            const height = prediction.bbox.height;
-    
-            // Draw the text last to ensure it's on top.
+        predictions.forEach(function(prediction) {
+            const { x, y } = prediction.bbox;
             ctx.font = font;
             ctx.textBaseline = "top";
             ctx.fillStyle = "#000000";
-            ctx.fillText(
-                prediction.class,
-                (x - width / 2) / scale + 4,
-                (y - height / 2) / scale + 1
-            );
+            ctx.fillText(prediction.class, x + 4, y + 1);
         });
+    
         updateDashboard(predictions);
     };
     
-    var prevTime;
-    var pastFrameTimes = [];
-    const detectFrame = function () {
+    const detectFrame = function() {
         if (!model) return requestAnimationFrame(detectFrame);
     
-        model
-            .detect(video)
-            .then(function (predictions) {
-                requestAnimationFrame(detectFrame);
-                renderPredictions(predictions);
+        model.detect(video).then(function(predictions) {
+            requestAnimationFrame(detectFrame);
+            renderPredictions(predictions);
     
-                if (prevTime) {
-                    pastFrameTimes.push(Date.now() - prevTime);
-                    if (pastFrameTimes.length > 30) pastFrameTimes.shift();
+            if (prevTime) {
+                pastFrameTimes.push(Date.now() - prevTime);
+                if (pastFrameTimes.length > 30) pastFrameTimes.shift();
     
-                    var total = 0;
-                    _.each(pastFrameTimes, function (t) {
-                        total += t / 1000;
-                    });
-    
-                    var fps = pastFrameTimes.length / total;
-                    $("#fps").text(Math.round(fps));
-                }
-                prevTime = Date.now();
-            })
-            .catch(function (e) {
-                console.log("CAUGHT", e);
-                requestAnimationFrame(detectFrame);
-            });
+                let total = 0;
+                pastFrameTimes.forEach(t => total += t / 1000);
+                const fps = pastFrameTimes.length / total;
+                $("#fps").text(Math.round(fps));
+            }
+            prevTime = Date.now();
+        }).catch(function(e) {
+            console.log("CAUGHT", e);
+            requestAnimationFrame(detectFrame);
+        });
     };
+    
     
 });
 
