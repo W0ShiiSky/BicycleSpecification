@@ -189,55 +189,84 @@ $(function () {
     
             let paragraph; // Declare paragraph variable outside the if-else block
             let element;
-    
-            if (prediction.class === "Bicycle") {
-                // element = $("<img>").attr({
-                //     id: elementId,
-                //     src: "https://W0ShiiSky.github.io/BicycleSpecification/image/BicycleSpecification3.jpg", // Replace with the actual image source
-                //     alt: "Bicycle Image"
-                // });
+            let wheelImageCreated = false;
+            
+            // if (prediction.class === "Bicycle") {
+            //     element = $("<img>").attr({
+            //         id: elementId,
+            //         src: "https://W0ShiiSky.github.io/BicycleSpecification/image/BicycleSpecification3.jpg", // Replace with the actual image source
+            //         alt: "Bicycle Image"
+            //     });
 
-                // element.css({
-                //     position: "absolute",
-                //     top: prediction.bbox.y, // Adjust this according to your bounding box data
-                //     left: prediction.bbox.x, // Adjust this according to your bounding box data
-                //     zIndex: 100, // Set a high z-index to bring it forward
-                //     width: "200px", // Set the width of the image
-                //     height: "auto" // Maintain aspect ratio
-                // });
+            //     element.css({
+            //         position: "absolute",
+            //         top: prediction.bbox.y, // Adjust this according to your bounding box data
+            //         left: prediction.bbox.x, // Adjust this according to your bounding box data
+            //         zIndex: 100, // Set a high z-index to bring it forward
+            //         width: "200px", // Set the width of the image
+            //         height: "auto" // Maintain aspect ratio
+            //     });
 
-            } else if (prediction.class === "Wheel"){
-                element = $("<img>").attr({
-                    id: elementId,
-                    src: "https://W0ShiiSky.github.io/BicycleSpecification/image/BicycleSpecification2.jpg", // Replace with the actual image source
-                    alt: "Wheel Image"
-                });
+            // } else if (prediction.class === "Wheel"){
+            //     element = $("<img>").attr({
+            //         id: elementId,
+            //         src: "https://W0ShiiSky.github.io/BicycleSpecification/image/BicycleSpecification2.jpg", // Replace with the actual image source
+            //         alt: "Wheel Image"
+            //     });
 
-                element.css({
-                    position: "absolute",
-                    top: prediction.bbox.y, // Adjust this according to your bounding box data
-                    right: prediction.bbox.x, // Adjust this according to your bounding box data
-                    zIndex: 100, // Set a high z-index to bring it forward
-                    width: "150px", // Set the width of the image
-                    height: "auto" // Maintain aspect ratio
-                });
+            //     element.css({
+            //         position: "absolute",
+            //         top: prediction.bbox.y, // Adjust this according to your bounding box data
+            //         right: prediction.bbox.x, // Adjust this according to your bounding box data
+            //         zIndex: 100, // Set a high z-index to bring it forward
+            //         width: "150px", // Set the width of the image
+            //         height: "auto" // Maintain aspect ratio
+            //     });
+            // }
+            // else if (prediction.class === "Handlebars"){
+            //     element = $("<img>").attr({
+            //         id: elementId,
+            //         src: "https://W0ShiiSky.github.io/BicycleSpecification/image/BicycleSpecification.jpg", // Replace with the actual image source
+            //         alt: "Bicycle Image"
+            //     });
+
+            //     element.css({
+            //         position: "absolute",
+            //         top: prediction.bbox.y, // Adjust this according to your bounding box data
+            //         right: prediction.bbox.x, // Adjust this according to your bounding box data
+            //         zIndex: 100, // Set a high z-index to bring it forward
+            //         width: "200px", // Set the width of the image
+            //         height: "auto" // Maintain aspect ratio
+            //     });
+            // }
+            function handlePrediction(prediction) {
+                if (prediction.class === "Wheel" && !wheelImageCreated) {
+                    // Mark the flag as true to indicate a wheel image is created
+                    wheelImageCreated = true;
+            
+                    // Create the image element
+                    let element = $("<img>").attr({
+                        id: "wheelImage", // Assign a specific ID for the wheel image
+                        src: "https://W0ShiiSky.github.io/BicycleSpecification/image/BicycleSpecification2.jpg", // Replace with the actual image source
+                        alt: "Wheel Image"
+                    });
+            
+                    // Apply CSS to position the image
+                    element.css({
+                        position: "absolute",
+                        top: prediction.bbox.y + "px", // Ensure these are in pixel units
+                        left: prediction.bbox.x + "px", // Ensure these are in pixel units
+                        zIndex: 100, // Set a high z-index to bring it forward
+                        width: "150px", // Set the width of the image
+                        height: "auto" // Maintain aspect ratio
+                    });
+            
+                    // Append the image to the body or a specific container
+                    $("body").append(element);
+                }
             }
-            else if (prediction.class === "Handlebars"){
-                // element = $("<img>").attr({
-                //     id: elementId,
-                //     src: "https://W0ShiiSky.github.io/BicycleSpecification/image/BicycleSpecification.jpg", // Replace with the actual image source
-                //     alt: "Bicycle Image"
-                // });
-
-                // element.css({
-                //     position: "absolute",
-                //     top: prediction.bbox.y, // Adjust this according to your bounding box data
-                //     right: prediction.bbox.x, // Adjust this according to your bounding box data
-                //     zIndex: 100, // Set a high z-index to bring it forward
-                //     width: "200px", // Set the width of the image
-                //     height: "auto" // Maintain aspect ratio
-                // });
-            }
+            
+            predictions.forEach(prediction => handlePrediction(prediction));
     
             // Append each paragraph to the dashboard
             // $("#dashboard").append(paragraph);
