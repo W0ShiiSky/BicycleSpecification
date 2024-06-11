@@ -381,27 +381,27 @@ $(function () {
                     top: prediction.bbox.y + "px", // Ensure these are in pixel units
                     left: prediction.bbox.x + "px", // Ensure these are in pixel units
                     zIndex: 100, // Set a high z-index to bring it forward
-                    width: "200px", // Set the width of the image
+                    width: "150px", // Set the width of the image
                     height: "auto" // Maintain aspect ratio
                 });
     
             } else if (prediction.class === "Wheel" && !wheelImageCreated) {
                 wheelImageCreated = true; // Mark the flag as true
     
-                element = $("<img>").attr({
-                    id: elementId,
-                    src: "https://W0ShiiSky.github.io/BicycleSpecification/image/BicycleSpecification2.jpg", // Replace with the actual image source
-                    alt: "Wheel Image"
-                });
+                // element = $("<img>").attr({
+                //     id: elementId,
+                //     src: "https://W0ShiiSky.github.io/BicycleSpecification/image/BicycleSpecification2.jpg", // Replace with the actual image source
+                //     alt: "Wheel Image"
+                // });
     
-                element.css({
-                    position: "absolute",
-                    top: prediction.bbox.y + "px", // Ensure these are in pixel units
-                    left: prediction.bbox.x + "px", // Ensure these are in pixel units
-                    zIndex: 100, // Set a high z-index to bring it forward
-                    width: "150px", // Set the width of the image
-                    height: "auto" // Maintain aspect ratio
-                });
+                // element.css({
+                //     position: "absolute",
+                //     top: prediction.bbox.y + "px", // Ensure these are in pixel units
+                //     left: prediction.bbox.x + "px", // Ensure these are in pixel units
+                //     zIndex: 100, // Set a high z-index to bring it forward
+                //     width: "150px", // Set the width of the image
+                //     height: "auto" // Maintain aspect ratio
+                // });
     
             } else if (prediction.class === "Handlebars" && !handlebarsImageCreated) {
                 handlebarsImageCreated = true; // Mark the flag as true
@@ -415,9 +415,9 @@ $(function () {
                 element.css({
                     position: "absolute",
                     top: prediction.bbox.y + "px", // Ensure these are in pixel units
-                    left: prediction.bbox.x + "px", // Ensure these are in pixel units
+                    right : prediction.bbox.x + "px", // Ensure these are in pixel units
                     zIndex: 100, // Set a high z-index to bring it forward
-                    width: "200px", // Set the width of the image
+                    width: "150px", // Set the width of the image
                     height: "auto" // Maintain aspect ratio
                 });
             }
