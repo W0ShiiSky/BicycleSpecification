@@ -217,7 +217,7 @@ $(function () {
                     position: "absolute",
                     top: prediction.bbox.y, // Adjust this according to your bounding box data
                     right: prediction.bbox.x, // Adjust this according to your bounding box data
-                    zIndex: 50, // Set a high z-index to bring it forward
+                    zIndex: 100, // Set a high z-index to bring it forward
                     width: "150px", // Set the width of the image
                     height: "auto" // Maintain aspect ratio
                 });
