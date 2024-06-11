@@ -191,34 +191,20 @@ $(function () {
             let element;
     
             if (prediction.class === "Bicycle") {
-                // paragraph = $("<p>").attr("id", paragraphId).html(
-                //     "<span style='color:black'>Register with LTA: No</span> <br>" +
-                //     "<span style='color:black'>Cycling Path: Yes</span> <br>" +
-                //     "<span style='color:black'>Foot Path: Yes</span> <br>" +
-                //     "<span style='color:black'>Road: Yes</span> <br>" +
-                //     "<span style='color:black'>Test: No</span> <br>" +
-                //     "<span style='color:black'>Max Speed: 10km/h on Footpath</span> <br>" +
-                //     "<span style='color:black'>Max Width: 70cm (on paths), 130cm (on roads)</span> <br>" +
-                //     "<span style='color:black'>Max Length: 260cm</span> <br>" +
-                //     "<span style='color:black'>At least one functioning handbrake is required to be installed at the handlebar of the device</span> <br>" +
-                //     "<span style='color:black'>Max unladen weight: -20kg (on paths)</span> <br>" +
-                //     "<span style='color:black'>Front white light and rear red light</span> <br>" +
-                //     "<span style='color:black'>Helmet: Road - Must, Paths - Encourage</span> <br>"
-                // );
-                element = $("<img>").attr({
-                    id: elementId,
-                    src: "https://W0ShiiSky.github.io/BicycleSpecification/image/BicycleSpecification3.jpg", // Replace with the actual image source
-                    alt: "Bicycle Image"
-                });
+                // element = $("<img>").attr({
+                //     id: elementId,
+                //     src: "https://W0ShiiSky.github.io/BicycleSpecification/image/BicycleSpecification3.jpg", // Replace with the actual image source
+                //     alt: "Bicycle Image"
+                // });
 
-                element.css({
-                    position: "absolute",
-                    top: prediction.bbox.y, // Adjust this according to your bounding box data
-                    left: prediction.bbox.x, // Adjust this according to your bounding box data
-                    zIndex: 100, // Set a high z-index to bring it forward
-                    width: "200px", // Set the width of the image
-                    height: "auto" // Maintain aspect ratio
-                });
+                // element.css({
+                //     position: "absolute",
+                //     top: prediction.bbox.y, // Adjust this according to your bounding box data
+                //     left: prediction.bbox.x, // Adjust this according to your bounding box data
+                //     zIndex: 100, // Set a high z-index to bring it forward
+                //     width: "200px", // Set the width of the image
+                //     height: "auto" // Maintain aspect ratio
+                // });
 
             } else if (prediction.class === "wheel"){
                 // element = $("<img>").attr({
@@ -237,20 +223,20 @@ $(function () {
                 // });
             }
             else if (prediction.class === "handlebars"){
-                element = $("<img>").attr({
-                    id: elementId,
-                    src: "https://W0ShiiSky.github.io/BicycleSpecification/image/Bicycle Specification.jpg", // Replace with the actual image source
-                    alt: "Bicycle Image"
-                });
+                // element = $("<img>").attr({
+                //     id: elementId,
+                //     src: "https://W0ShiiSky.github.io/BicycleSpecification/image/BicycleSpecification.jpg", // Replace with the actual image source
+                //     alt: "Bicycle Image"
+                // });
 
-                element.css({
-                    position: "absolute",
-                    top: prediction.bbox.y, // Adjust this according to your bounding box data
-                    right: prediction.bbox.x, // Adjust this according to your bounding box data
-                    zIndex: 100, // Set a high z-index to bring it forward
-                    width: "200px", // Set the width of the image
-                    height: "auto" // Maintain aspect ratio
-                });
+                // element.css({
+                //     position: "absolute",
+                //     top: prediction.bbox.y, // Adjust this according to your bounding box data
+                //     right: prediction.bbox.x, // Adjust this according to your bounding box data
+                //     zIndex: 100, // Set a high z-index to bring it forward
+                //     width: "200px", // Set the width of the image
+                //     height: "auto" // Maintain aspect ratio
+                // });
             }
     
             // Append each paragraph to the dashboard
