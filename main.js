@@ -206,7 +206,7 @@ $(function () {
                 //     height: "auto" // Maintain aspect ratio
                 // });
 
-            } else if (prediction.class === "wheel"){
+            } else if (prediction.class === "Wheel"){
                 element = $("<img>").attr({
                     id: elementId,
                     src: "../BICYCLES2/image/BicycleSpecification2.jpg", // Replace with the actual image source
@@ -222,7 +222,7 @@ $(function () {
                     height: "auto" // Maintain aspect ratio
                 });
             }
-            else if (prediction.class === "handlebars"){
+            else if (prediction.class === "Handlebars"){
                 // element = $("<img>").attr({
                 //     id: elementId,
                 //     src: "https://W0ShiiSky.github.io/BicycleSpecification/image/BicycleSpecification.jpg", // Replace with the actual image source
