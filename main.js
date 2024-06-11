@@ -209,7 +209,7 @@ $(function () {
             } else if (prediction.class === "Wheel"){
                 element = $("<img>").attr({
                     id: elementId,
-                    src: "../BICYCLES2/image/BicycleSpecification2.jpg", // Replace with the actual image source
+                    src: "https://W0ShiiSky.github.io/BicycleSpecification/image/BicycleSpecification2.jpg", // Replace with the actual image source
                     alt: "Wheel Image"
                 });
 
